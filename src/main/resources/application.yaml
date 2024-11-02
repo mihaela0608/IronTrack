@@ -20,11 +20,7 @@ spring:
       mode: never
 
   jpa:
-    # Choose either MySQL 8 or MySQL 5 below
-    # For MySQL 8
-    database-platform: org.hibernate.dialect.MySQL8Dialect
-    #For MySQL 5
-    #database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database-platform: org.hibernate.dialect.MySQLDialect  # Updated dialect
     hibernate:
       ddl-auto: update
     open-in-view: false
@@ -33,11 +29,7 @@ spring:
         show_sql: true
         format_sql: true
     defer-datasource-initialization: true
-  #Cloudinary Properties
-  #cloudinary:
-  #api-key:
-  #api-secret:
-  #cloud-name:
+
   thymeleaf:
     check-template-location: true
     cache: false
