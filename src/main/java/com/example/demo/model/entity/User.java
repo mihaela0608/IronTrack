@@ -1,9 +1,6 @@
 package com.example.demo.model.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,4 +23,9 @@ public class User extends BaseEntity{
 
     @OneToMany(mappedBy = "user")
     private List<Goal> goals;
+    @OneToMany(mappedBy = "user")
+    private List<Workout> workouts;
+
+    @ManyToMany
+    private List<Workout> favourites;
 }
