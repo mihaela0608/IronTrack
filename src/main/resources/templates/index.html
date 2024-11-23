@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IronTrack - Elevate Your Triathlon Journey</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(15, 76, 129, 0.9);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        header .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00bcd4;
+            text-transform: uppercase;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 15px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #00bcd4;
+        }
+
+        .auth-buttons a {
+            text-decoration: none;
+            background: #00bcd4;
+            color: #000;
+            padding: 8px 15px;
+            margin-left: 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .auth-buttons a:hover {
+            background: #fff;
+        }
+
+        section.hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
+                        url('https://source.unsplash.com/1600x900/?sports,triathlon') no-repeat center/cover;
+            position: relative;
+        }
+
+        section.hero h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #00bcd4;
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+            animation: slideIn 2s ease-in-out;
+        }
+
+        section.hero p {
+            font-size: 1.8rem;
+            margin: 20px 0;
+            color: #d1ecf1;
+            animation: fadeIn 2.5s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        section.hero .cta {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #00bcd4, #1de9b6);
+            color: #000;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 30px;
+            text-transform: uppercase;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: popIn 3s ease-in-out;
+        }
+
+        section.hero .cta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        section.hero .stats {
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-evenly;
+            width: 80%;
+        }
+
+        section.hero .stats div {
+            text-align: center;
+        }
+
+        section.hero .stats h3 {
+            font-size: 2.5rem;
+            color: #00bcd4;
+            margin: 0;
+        }
+
+        section.hero .stats p {
+            font-size: 1.2rem;
+            color: #d1ecf1;
+        }
+
+        section.info {
+            padding: 60px 30px;
+            background: #16222a;
+            text-align: center;
+        }
+
+        section.info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #00bcd4;
+        }
+
+        section.info p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+            line-height: 1.8;
+            color: #ccc;
+        }
+        section.reviews, section.how-it-works, section.pricing, section.faq {
+            padding: 60px 30px;
+            background: #203a43;
+            color: #fff;
+            text-align: center;
+        }
+
+        section.reviews h2, section.how-it-works h2, section.pricing h2, section.faq h2 {
+            color: #00bcd4;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .review-cards, .steps, .plans, .faqs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .review-card, .step, .plan, .faq-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            transition: transform 0.3s;
+        }
+
+        .review-card:hover, .step:hover, .plan:hover, .faq-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .review-card p, .step p, .plan p, .faq-item p {
+            color: #ddd;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">IronTrack</div>
+    <nav>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="auth-buttons">
+        <a href="#">Login</a>
+        <a href="#">Register</a>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>IronTrack - Elevate Your Triathlon Journey</h1>
+    <p>The ultimate app for personalized training, team motivation, and expert coaching.</p>
+    <a href="#info" class="cta">Learn More</a>
+    <div class="stats">
+        <div>
+            <h3>50+</h3>
+            <p>Professional Coaches</p>
+        </div>
+        <div>
+            <h3>10,000+</h3>
+            <p>Active Users</p>
+        </div>
+        <div>
+            <h3>100+</h3>
+            <p>Training Plans</p>
+        </div>
+    </div>
+</section>
+
+<section class="info" id="info">
+    <h2>Why IronTrack?</h2>
+    <p>IronTrack is designed for triathlon enthusiasts of all levels. Whether you're a beginner or an experienced athlete, our app provides tools to track your progress, communicate with top coaches, and join supportive teams to help you reach your goals.</p>
+    <p>With features tailored to swimming, cycling, and running, IronTrack ensures your journey is streamlined and effective.</p>
+</section>
+<section class="reviews" id="reviews">
+    <h2>What Our Users Say</h2>
+    <div class="review-cards">
+        <div class="review-card">
+            <p>"IronTrack completely changed my training routine. The team support is unmatched!"</p>
+            <h3>- Sarah J.</h3>
+        </div>
+        <div class="review-card">
+            <p>"Thanks to IronTrack, I finished my first triathlon with confidence. Amazing app!"</p>
+            <h3>- Mark R.</h3>
+        </div>
+        <div class="review-card">
+            <p>"Connecting with professional coaches has been a game-changer for me."</p>
+            <h3>- Emily K.</h3>
+        </div>
+    </div>
+</section>
+
+<section class="how-it-works" id="how-it-works">
+    <h2>How It Works</h2>
+    <div class="steps">
+        <div class="step">
+            <h3>1. Sign Up</h3>
+            <p>Create an account in minutes and set your training goals.</p>
+        </div>
+        <div class="step">
+            <h3>2. Choose a Plan</h3>
+            <p>Select from beginner to advanced plans tailored to your needs.</p>
+        </div>
+        <div class="step">
+            <h3>3. Track & Improve</h3>
+            <p>Monitor your progress and adjust based on expert feedback.</p>
+        </div>
+    </div>
+</section>
+
+<section class="pricing" id="pricing">
+    <h2>Plans & Pricing</h2>
+    <div class="plans">
+        <div class="plan">
+            <h3>Free Plan</h3>
+            <p>Basic tracking tools and access to community support.</p>
+            <p>Price: $0/month</p>
+        </div>
+        <div class="plan">
+            <h3>Pro Plan</h3>
+            <p>Advanced features, custom workouts, and direct coach access.</p>
+            <p>Price: $15/month</p>
+        </div>
+        <div class="plan">
+            <h3>Elite Plan</h3>
+            <p>All Pro features plus premium 1-on-1 coaching and analytics.</p>
+            <p>Price: $50/month</p>
+        </div>
+    </div>
+</section>
+
+<section class="faq" id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faqs">
+        <div class="faq-item">
+            <h3>Can I use IronTrack without prior experience in triathlons?</h3>
+            <p>Absolutely! IronTrack is designed for all levels, from beginners to seasoned athletes.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Are the coaching plans customizable?</h3>
+            <p>Yes, you can work with our coaches to create a plan tailored specifically to you.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What devices does IronTrack support?</h3>
+            <p>IronTrack works on iOS, Android, and most web browsers.</p>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

@@ -7,6 +7,7 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -23,4 +24,7 @@ public class Team extends BaseEntity{
     @OneToMany(mappedBy = "team")
     private List<Coach> coaches;
 
+    public Team () {
+        this.coaches = new ArrayList<>();
+    }
 }
